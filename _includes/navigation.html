@@ -1,0 +1,12 @@
+
+<nav class="navbar navbar-inverse navbar-fixed-top bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand text-light" href="/">MaskD</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a class="text-light" href="/"{% if page.url == "/" %}style="color:red;"{% endif %}>Home</a></li>
+      <li><a class="text-light" href="/about.html" {% if page.url == "/about.html" %} style="color:red;" {% endif %}>About</a></li>
+    </ul>
+  </div>
+</nav>
