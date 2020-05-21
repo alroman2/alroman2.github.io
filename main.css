@@ -9,11 +9,17 @@
     padding: 0% !important;
 }
 
-.introText {
+.introtext {
     color: gainsboro;
-    
+    font-size: 250px;
+    text-justify: auto; 
 }
-
+.introp{
+    color:gainsboro;
+    font-size: 100px;
+    text-align: center;
+    text-justify: auto;
+}
 body{
     background-color: #c4c4c4;
 }
