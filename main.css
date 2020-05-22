@@ -11,12 +11,12 @@
 
 .introtext {
     color: gainsboro;
-    font-size: 250px;
+    font-size: 10vw;
     text-justify: auto; 
 }
 .introp{
     color:gainsboro;
-    font-size: 100%;
+    font-size: 5vw;
     text-align: center;
     text-justify: auto;
 }
