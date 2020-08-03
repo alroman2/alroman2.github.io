@@ -24,13 +24,33 @@ body{
     background-color: white;
 }
 
+/** Main Contect CSS **/
+
+/**Side Menu **/
+.sidemenu{
+    width: 30%;
+    border-right: 20px;
+    border-color: black;
+}
+.parent {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.flexchild{
+    flex: 1;
+}
+
+.product-contain{
+    margin-left: 50px;
+}
 .product-grid{
     font-family: 'Open Sans',sans-serif;
     position: relative;
 }
 .product-grid .product-image{
     overflow: hidden;
-    position: relative;
+    position: static;
 }
 .product-grid .product-image a{
     display: block;

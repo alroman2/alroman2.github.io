@@ -1,7 +1,8 @@
-
-    let row = '<div class="row align-items-center"> <div class="col">| first</div> <div class="col">| second</div> <div class="col">| Third</div> </div>'
-    $(document).ready(function(){
+    var prodelem = $(' <img src="/data/product/imgs/pic1.jpg" />')
+   $(document).ready(function(){
         $("button").click(function(){
-            $("#itemContainer").append(row);
+            $('#hockey').after(prodelem);
         });
     });
+
+    script.src = ("products.js");

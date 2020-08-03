@@ -19,8 +19,6 @@ title: G-mask
     </title>
 
     <body>
-        <nav>
-        
         <div class="jumbotron-fluid customclass" style="background-image: url(https://images.unsplash.com/photo-1558085324-2f298b28c714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80); 
                                                     background-position:center center; background-attachment: fixed; background-size: cover;-moz-background-size:cover; background-repeat: no-repeat; opacity: 0.85; " >
             <div class="container">
@@ -34,59 +32,45 @@ title: G-mask
         </div>
         <button id="button"> Add row </button>
       
-        <div class="container space-evenly" id="itemContainer">
-            <div class="row align-items-center">
-                <!--Thir column show include the first product--> 
-                <div class="col-md-3 col-sm-6">
-                    <!-- product-grid class needs to be defined-->
-                    <div class ="product-grid">
-                        <div class="product-image">
-                           <a>
-                               <img class="pic-1" src="/data/product/imgs/pic1.jpg">
-                               <img class="pic-2" src="/data/product/imgs/hockey.jpg">
-                           </a>
-                           <div class="product-content">
-                               <h3 class="title"><a href="#">All American G-Mask</a></h3>
-                               <span class="price">$5</span>
-                           </div> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <!-- product-grid class needs to be defined-->
-                    <div class ="product-grid">
-                        <div class="product-image">
-                           <a>
-                              
-                               <img class="pic-1" src="/data/product/imgs/hockey.jpg">
-                           </a>
-                           <div class="product-content">
-                               <h3 class="title"><a href="#">Hockey Print G-Mask</a></h3>
-                               <span class="price">$5</span>
-                           </div> 
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <!-- product-grid class needs to be defined-->
-                    <div class ="product-grid">
-                        <div class="product-image">
-                           <a>
-                               <img class="pic-1" src="/data/product/imgs/variety.jpg">
-                           </a>
-                           <div class="product-content">
-                               <h3 class="title"><a href="#">Variet Pack G-Masks</a></h3>
-                               <span class="price">$20</span>
-                           </div> 
-                        </div>
+        <div class="flex-container parent">
+            <div class="flex-child side menu">
+                <div class="row">
+                    <div class="col">
+                        <ul class="nav-bar ml-auto" id=sidebarmenu>
+                            <li class="nav-item">
+                                <a> Search</a>
+                            </li>
+                            <li>
+                                <a> Filter</a>
+                            </li>
+                            <li>
+                                <a> Reset</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-
-
+            <div class="flex-child product-contain">
+                <div class="row align-items-center">
+                    <!--Thir column show include the first product--> 
+                    <div class="col-md-3 col-sm-6" id=hockey>
+                    <!-- product-grid class needs to be defined-->
+                        <div class ="product-grid">
+                            <div class="product-image">
+                            <a>
+                               <img class="pic-1" src="/data/product/imgs/pic1.jpg">
+                               <img class="pic-2" src="/data/product/imgs/hockey.jpg">
+                            </a>
+                            <div class="product-content">
+                               <h3 class="title"><a href="#">All American G-Mask</a></h3>
+                               <span class="price">$5</span>
+                            </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
