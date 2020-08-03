@@ -1,1 +1,2 @@
-# alroman2.github.io
+# E-Commerce Website Template 
+# by Alexander Roman
