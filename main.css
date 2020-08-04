@@ -5,27 +5,49 @@
 
 .customclass {
     width: 100%;
-    height: 800px !important;
+    height: 800px;
+    max-height: 80%;
     padding: 0% !important;
 }
 
 .introtext {
     color: white;
     font-size: 10vw;
-    text-justify: auto; 
+    text-justify: auto;
 }
 .introp{
     color:white;
     font-size: 5vw;
     text-align: center;
-    text-justify: auto;
 }
 body{
-    background-color:rgb(236,240,241);
+    
+    background-color:rgb(255, 255, 255);
 }
 
 /** Main Contect CSS **/
 
+.headtext{
+    text-align: center;
+    font-size: 75px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.maintext{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.linebreak{
+    width: 80%;
+    height: 1px;
+    margin: 0px auto;
+    border-bottom: 1px solid #969696;;
+}
+.imgresize{
+    width: 50%;
+    max-height: 50%;
+    align-content: flex-start;
+}
 /**Side Menu **/
 .sidemenu{
     width: 30%;
@@ -80,18 +102,31 @@ body{
 }
 
 
-/**
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
 
-// Medium devices (tablets, 768px and up)
+ /**Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) {
+    .introtext{
+        padding-top: 10vh;
+        color: white;
+        font-size: 22vw;
+        text-align: center;
+        text-justify: auto;
+        }
+
+    .introp{
+    color:white;
+    font-size: 15vw;
+    text-align: center;
+}
+}
+
+/** Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) { ... }
 
-// Large devices (desktops, 992px and up)
+/**Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) { ... }
 
-// Extra large devices (large desktops, 1200px and up)
+/**Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) { ... }
 
-*/
