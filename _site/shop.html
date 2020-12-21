@@ -50,7 +50,7 @@
     </title>
 
     <body>
-        
+        <button onclick="generate_content()"> click me </button>
         <div class="flex-container parent">
             <div class="flex-child side menu">
                 <div class="row">
@@ -67,7 +67,7 @@
                 </div>
             </div>
 
-            <div class="flex-child product-contain">
+            <div id = 'product_table'class="flex-child product-contain">
                 <div class="row align-items-center">
                     <!--Thir column show include the first product--> 
                     <div class="col-md-3 col-sm-6" id=hockey>
@@ -81,7 +81,7 @@
                             <div class="product-content">
                                <h3 class="title"><a href="#">All American G-Mask</a></h3>
                                <span class="price">$5</span><br />
-                                    <span> <button type="button" class="btn btn-dark btn-rounded btn-sm mr-1 mb-2">Add to cart</button></span>
+                                    <span> <button id="buy" type="button" class="btn btn-dark btn-rounded btn-sm mr-1 mb-2">Add to cart</button></span>
                             </div> 
                             </div>
                         </div>
@@ -212,6 +212,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="node_modules/parse/dist/parse.min.js"></script>
+    <script src="Network.js"></script>
+    <script src="ShopController.js"></script>
     <script src="main.js"> </script>
     </body>
 </html>

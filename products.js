@@ -10,6 +10,7 @@ function Product(name, img, qty, price){
     this.img = img;
     this.qty = qty;
     this.price = price;
+    
 }
 
 
