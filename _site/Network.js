@@ -4,4 +4,3 @@ Parse.initialize(
   'kJ0VNS5aQBLvtIHQZltY2uzpkRNxql5nksRGjuxm' // This is your Javascript key
 );
 
-\

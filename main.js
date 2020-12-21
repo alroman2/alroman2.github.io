@@ -5,4 +5,4 @@
         });
     });
 
-    script.src = ("products.js");
+   
