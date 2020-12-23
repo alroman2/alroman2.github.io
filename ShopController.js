@@ -69,7 +69,19 @@ function table(){
 }
 
 function generate_content(){
-    
+        const Products_class = Parse.Object.extend('Products');
+        const query = new Parse.Query(Products_class);
+        query.equalTo("name", "All American");
+        query.find().then((results) => {
+         // You can use the "get" method to get the value of an attribute
+        // Ex: response.get("<ATTRIBUTE_NAME>")
+        if (typeof document !== 'undefined') document.write(`ParseObjects found: ${JSON.stringify(results)}`);
+        console.log('ParseObjects found:', results);
+        }, (error) => {
+        if (typeof document !== 'undefined') document.write(`Error while fetching ParseObjects: ${JSON.stringify(error)}`);
+        console.error('Error while fetching ParseObjects', error);
+        });
+
         let table_controller = new table();
         table_controller.add_row();
         table_controller.add_row()
