@@ -1,8 +1,11 @@
-function product (name, ID, image_url, price){
+
+
+function product (name, ID, image_url, price,quantity){
     this.name = name;
     this.ID = ID;
     this.img_url = image_url;
     this.price = price;
+    this.quantity = quantity;
 }
 
 function tableCell(){
@@ -15,14 +18,17 @@ function table(){
     this.row_contents = [];
     this.contents_num = 0;
     this.rows = 0;
+
     this.add_row = function(){
         const row_div = document.createElement('div');
         row_div.id = 'row' +this.rows; 
         row_div.className = 'row align-items-center'
+        row_div.style = 'margin-right: 50px; margin-left: 50px'
         document.getElementById('product_table').appendChild(row_div);
         this.rows++;
     }
-    this.add_cell = function (index, image_string) {
+
+    this.add_cell = function (index, product) {
         const product_div = document.createElement('div');
         const product_grid_div = document.createElement('div');
         const product_image_div = document.createElement('div');
@@ -46,9 +52,9 @@ function table(){
         button.className = 'btn btn-dark btn-rounded btn-sm mr-1 mb-2';
 
         img.className = 'pic-1';
-        img.src = image_string;
-        product_link.innerText = 'All american';
-        price_span.innerHTML = '$5 </br>'
+        img.src = product.img_url;
+        product_link.innerText = product.name;
+        price_span.innerHTML = '$'+ product.price + '</br>'
         button.innerText = 'Buy now';
 
         product_div.appendChild(product_grid_div);
@@ -69,25 +75,53 @@ function table(){
 }
 
 function generate_content(){
-    
+        let product_ids;
+        
+        //initialize product table view
         let table_controller = new table();
         table_controller.add_row();
-        table_controller.add_row();
-        const Products_class = Parse.Object.extend('Products');
-        const Prods = new Parse.Query(Products_class);
-        let test;
-        Prods.get("iCGIoUKLvm")
-        .then((mask) => {
-            
-            test = mask.get("image");
-            console.log("finished api request")
-            console.log(test.url());
-            let image_url_string = ""+test.url();
-            //$("test1").src= image_url_string;        
-            table_controller.add_cell(0, image_url_string);
-        }, (error) => {
+        //table_controller.add_row();
 
+        //start quering database for available proucts
+        const Products_class = Parse.Object.extend('Products');
+        const query = new Parse.Query(Products_class);
+        query.greaterThan("Quantity",0);
+
+        query.find().then( (results) => {
+            console.log(results);
+            let i = 0;
+            product_ids = new Array(results.length);
+            //store data results in global content and display them
+            results.forEach(object => {
+                const name = object.attributes.name;
+                const  ID = object.id;
+                const imageURL = object.attributes.image.url();
+                const price = object.attributes.price;
+                const quantity = object.attributes.Quantity;
+                const curr_product = new product(name,ID,imageURL,price,quantity)
+                table_controller.add_cell(0, curr_product);
+                product_ids[i++] = curr_product
+                //console.log(object.attributes.name);
+            });
+            console.log(product_ids);        
+            
+        }, (error) => {
+            console.log(error);
         });
+
+        // let test;
+        // Prods.get("iCGIoUKLvm")
+        // .then((mask) => {
+            
+        //     test = mask.get("image");
+        //     console.log("finished api request")
+        //     console.log(test.url());
+        //     let image_url_string = ""+test.url();
+        //     //$("test1").src= image_url_string;        
+        //     table_controller.add_cell(0, image_url_string);
+        // }, (error) => {
+
+        // });
         // query.find().then((results) => {
         //  // You can use the "get" method to get the value of an attribute
         // // Ex: response.get("<ATTRIBUTE_NAME>")
