@@ -35,7 +35,7 @@ function table(){
         const image_container = document.createElement('a');
         const img = document.createElement('img');
         const price_span = document.createElement('span');
-
+        
         const product_content_div = document.createElement('div');
         const content_name_header = document.createElement('h3');
         const product_link = document.createElement('a');
@@ -48,14 +48,18 @@ function table(){
         product_content_div.className = 'product-content';
         content_name_header.className = 'title';
         price_span.className = 'price';
-        product_link.href = '#';
+        product_link.href = './cart.html';
         button.className = 'btn btn-dark btn-rounded btn-sm mr-1 mb-2';
+        button.id = 'addCartButton'+this.contents_num;
+        //button.type= 'button';
+        //button.onclick = "location.href='./cart.html'";
+
 
         img.className = 'pic-1';
         img.src = product.img_url;
         product_link.innerText = product.name;
         price_span.innerHTML = '$'+ product.price + '</br>'
-        button.innerText = 'Buy now';
+        button.innerText = 'Add to cart';
 
         product_div.appendChild(product_grid_div);
         product_grid_div.appendChild(product_image_div);
@@ -70,10 +74,65 @@ function table(){
         content_name_header.appendChild(product_link);
         
         document.getElementById('row'+ index).appendChild(product_div);
+        this.table_contents[this.contents_num] = product;
+        this.contents_num++;
+    }
+}
+
+// function add_to_cart(id_button){
+//     console.log('Clicked');
+//     let modal = document.getElementById('exampleModal')
+//     id_button.onclick = function(){
+//         modal.style.display = 'block';
+//     }
+// }
+
+function post_content(){
+    
+    for (let i = 0; i < 20; i++){
+        const Product_class = Parse.Object.extend('Products');
+        const mask = new Product_class();
+
+        mask.set('Quantity',Math.floor(Math.random()*21));
+        mask.set('name', "item"+i );
+        mask.set('price', 1);
+        mask.set('Size', 'L');
+        
         
     }
 }
 
+function upload(){
+    const Product_class = Parse.Object.extend('Products');
+    
+    const control = $('#photoUpload')[0];
+    console.log('running');
+    for (let i = 0; i < 25; i++){
+        if (control.files.length > 0){
+                    console.log('creating mask....')
+                    const mask = new Product_class();
+                    mask.set('Quantity',Math.floor(Math.random()*100));
+                    mask.set('name', "item " + Math.floor(Math.random()*100));
+                    mask.set('price', Math.floor(Math.random()*15));
+                    mask.set('Size', 'L');
+                    const file = control.files[0];
+                    const name = 'mask.jpg';
+        
+                    const parseFile = new Parse.File(name,file);
+                    mask.set('image', parseFile);
+        
+                    mask.save().then(
+                        (result) => {
+                            console.log('product created:',result);
+                        }, (error) => {
+                            console.error("Error while creating product", error);
+                        }
+                    );
+        
+                    console.log('ran')
+        }
+    }
+}
 function generate_content(){
         let product_ids;
         
@@ -135,3 +194,4 @@ function generate_content(){
 
      
 }
+
