@@ -1,3 +1,21 @@
+
+/** Navigation Bar **/
+.bar-padding {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: auto;
+}
+
+.sticky + .bar-padding {
+    padding-top: 60px;
+}
+
+
+/** Landing page **/
 .container-fluid{
     padding: 0;
 }
@@ -75,16 +93,6 @@ body{
     border-right: none;
     border-left: none;
     
-}
-
-/** Shop page Banner **/
-.banner{
-    background-image: url(./data/product/imgs/shop_now_action_small_device.gif); 
-    min-height: 200px; 
-    width: 100%; 
-    background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover;
 }
 
 /** Displaying products classes **/
@@ -165,20 +173,11 @@ body{
 }
 }
 
-/** Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) { ... }
+/** Medium devices (tablets, 768px and down)*/
+@media (max-width: 768px) { ... }
 
 /**Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) { 
-    .banner{
-    background-image: url(./shop_now_action.gif); 
-    min-height: 400px; 
-    width: 100%; 
-    background-repeat: no-repeat; 
-    background-position: center; 
-    background-size: cover;
-    }
-}
+@media (min-width: 992px) { ... }
 
 /**Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) { ... }
