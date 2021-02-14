@@ -9,11 +9,11 @@
   </head>
   <body>
     
-<nav class="navbar navbar-expand-md navbar-light navbar-fixed-top" style="background-color:rgb(255, 255, 255);">
+<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color:rgb(255, 255, 255);">
   <div>
     <h1 style="font-family:'Segoe UI';"><a class="nav-link" href="/index.html" style="color:black"> G - Masks</a></h1>
   </div>
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarmenu"> 
+    <button class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse"> 
       <span class="navbar-toggler-icon"></span>
     </button> 
   <div class="collapse navbar-collapse"> 
@@ -25,7 +25,7 @@
           <a class="nav-link" href="#">Login</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
+          <a class="nav-link" href="/cart.html">Cart</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/about.html">About</a>
@@ -51,22 +51,46 @@
 
     <body onload="generate_content()">
         
-        <div class="jumbotron-fluid" style="background-image: url(/shop_now_action.gif); 
-                                            min-height: 400px; background-repeat: no-repeat; background-position: center; background-size: cover;">
+        <div class="jumbotron-fluid banner" >
             
         </div>
         
-        <!-- <button onclick="generate_content()"> click me </button> -->
-        <div class="flex-container parent">
-            <div class="flex-child side menu">
+        <!--<input type="file" id ="photoUpload">
+        <button onclick="upload()">create mask</button> -->
+        <div class="flex-container parent ">
+            <div class="flex-child sidemenu linebreak-vertical">
                 <div class="row">
                     <div class="col">
-                        <ul class="nav-bar ml-auto" id=sidebarmenu>
+                        <ul class="nav-bar ml-auto" style= "list-style-type: none;"id=sidebarmenu>
                             <li>
-                                <a> Filter</a>
+                                <h5 class="h5-style"> Sizes </h5>
                             </li>
                             <li>
-                                <a> Reset</a>
+                                <div class="form-check">
+                                    <input class = "form-check-input" type="checkbox" value="" id = "smallCheck">
+                                    <label class = "form-check-label" for="smallCheck">
+                                        S 
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class = "form-check-input" type="checkbox" value="" id = "mediumCheck">
+                                    <label class = "form-check-label" for="mediumCheck">
+                                        M 
+                                    </label>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class = "form-check" >
+                                    <input class = "form-check-input" type="checkbox" value="" id = "largeCheck">
+                                            
+                                    <label class = "form-check-label" for="largeCheck">
+                                        L 
+                                    </label>
+                                </div>
+                                
                             </li>
                         </ul>
                     </div>
@@ -76,8 +100,32 @@
             <div id = 'product_table'class="flex-child product-contain">
                
             </div>
-        </div>  
 
+            
+        </div>  
+        
+        <!-- Modal -->
+        
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
