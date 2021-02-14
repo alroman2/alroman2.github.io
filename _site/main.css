@@ -1,3 +1,21 @@
+
+/** Navigation Bar **/
+.bar-padding {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: auto;
+}
+
+.sticky + .bar-padding {
+    padding-top: 60px;
+}
+
+
+/** Landing page **/
 .container-fluid{
     padding: 0;
 }
@@ -52,12 +70,41 @@ body{
 .sidemenu{
     width: 30%;
     border-right: 20px;
+    border-left: .5vw;
     border-color: black;
+    margin-top: 2vw;
+}
+
+.linebreak-vertical{
+    border-style: solid;
+    border-top: none;
+    border-left: none;  
+    border-bottom: none;
+    border-color:rgb(105,105,105,0.5);
+    border-width: 1px;
+    border-radius: 0;
+    padding-right: 5%;
+}
+.h5-style{
+    border-style: solid;
+    border-radius: 10%;
+    border-width: 1.5px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    
+}
+
+/** Displaying products classes **/
+.margin-constraints{
+    margin-top: 2vw;
 }
 .parent {
   display: flex;
   flex-direction: row;
   height: 100%;
+  background-color: rgb(132,205,202,0.1);
+  
 }
 .flexchild{
     flex: 1;
@@ -65,10 +112,15 @@ body{
 
 .product-contain{
     margin-left: 50px;
+    margin-top: 2vw;
 }
 .product-grid{
     font-family: 'Open Sans',sans-serif;
     position: relative;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D6D6D6;
+    margin-bottom: 5vw;
 }
 .product-grid .product-image{
     overflow: hidden;
@@ -121,8 +173,8 @@ body{
 }
 }
 
-/** Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) { ... }
+/** Medium devices (tablets, 768px and down)*/
+@media (max-width: 768px) { ... }
 
 /**Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) { ... }
