@@ -3,8 +3,6 @@ layout: default
 title: G-mask
 ---
 
-<!DOCTYPE html>
- 
 <html lang="en">
     <head> 
          <!-- Required meta tags -->
@@ -15,19 +13,37 @@ title: G-mask
     </head>
 
     <title>
-        Shop
+        Login
     </title>
 
-    <body onload="generate_cart()">
-       
-        <div class="container" >
-             <div class="row">
-                 <div id="cart_table" class="col-lg">
-                    
-                 </div>
+    <body >
+        
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              <!-- Tabs Titles -->
+              <h2 class="active"> Sign In </h2>
+              <h2 class="inactive underlineHover">Sign Up </h2>
+          
+              <!-- Icon -->
+              <div class="fadeIn first">
+                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+              </div>
+          
+              <!-- Login Form -->
+              <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+              </form>
+          
+              <!-- Remind Passowrd -->
+              <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+              </div>
+          
+            </div>
+          </div>
 
-             </div>
-        </div>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -38,9 +54,6 @@ title: G-mask
         Parse.initialize("HipPZuPmvP5TdF39Jg0CB9R918qkgREVyXwLlbJf","kJ0VNS5aQBLvtIHQZltY2uzpkRNxql5nksRGjuxm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
         Parse.serverURL = 'https://parseapi.back4app.com/'
     </script>
-    <script src="Network.js"></script>
-    <script src="ShopController.js"></script>
-    <script src="main.js"> </script>
-    <script src="CartController.js"></script>
+    
     </body>
 </html>

@@ -22,13 +22,14 @@
           <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="/Login.html">Login</a>
       </li>
-      <li class="nav-item">
+      <li id = "cartButton" class="nav-item">
+        
           <a class="nav-link" href="/cart.html">Cart</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/about.html">About</a>
+        <a class="nav-link" href="/shop.html">Shop</a>
       </li>
     </ul>
   </div>
@@ -49,35 +50,16 @@
         Shop
     </title>
 
-    <body onload="">
-        
-<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color:rgb(255, 255, 255);">
-  <div>
-    <h1 style="font-family:'Segoe UI';"><a class="nav-link" href="/index.html" style="color:black"> G - Masks</a></h1>
-  </div>
-    <button class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse"> 
-      <span class="navbar-toggler-icon"></span>
-    </button> 
-  <div class="collapse navbar-collapse"> 
-    <ul class="navbar-nav ml-auto" id="navbarmenu">
-      <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" href="/cart.html">Cart</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/about.html">About</a>
-      </li>
-    </ul>
-  </div>
-  
-</nav>
-        
-    
+    <body onload="generate_cart()">
+       
+        <div class="container" >
+             <div class="row">
+                 <div id="cart_table" class="col-lg">
+                    
+                 </div>
+
+             </div>
+        </div>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -91,6 +73,7 @@
     <script src="Network.js"></script>
     <script src="ShopController.js"></script>
     <script src="main.js"> </script>
+    <script src="CartController.js"></script>
     </body>
 </html>
     <!-- Optional JavaScript -->

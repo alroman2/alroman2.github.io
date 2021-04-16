@@ -35,72 +35,58 @@
   </div>
   
 </nav>
-    <!DOCTYPE html>
-
-<html lang="en">
-    <head>
+    <html lang="en">
+    <head> 
          <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
-        
-        <!-- bootstrap-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="main.css">
+        <link rel="stylesheet" type="text/css" href="main.css">    
     </head>
 
-   <!-- The title name that displays on the tab -->
     <title>
-        G-Masks
+        Login
     </title>
-    <!-- The start of the entire page-->
-    <body>
-        <!-- The start of the gian mask image, jumbtron class is for really big things -->
-        <div class="jumbotron-fluid customclass" style="background-image: url(https://images.unsplash.com/photo-1558085324-2f298b28c714?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80); 
-                                                    background-position:center center; background-attachment: fixed; background-size: cover;-moz-background-size:cover; background-repeat: no-repeat; opacity: 0.85;" >
-           <!-- A container inside of the jumbotron that will display the text over it-->
-           <div class="container">
-                <h1 class="text-center introtext">G-Masks</h1>
-                <blockquote class="blockquote introp">
-                    <p class="text-center"> Stay Safe. Stay Friendly.</p>
-                    <p class="text-center">Starting at $5</p>
-                    <a style="text-align: end; color: white;" href="/shop.html"> Shop Here</a>
-                </blockquote>
-            </div>
-        </div>
+
+    <body >
         
-        <div>
-            <div>
-                <header>
-                    <h1 class="headtext">G-mask</h1>
-                </header>
-
-                <div class="container maintext linebreak">
-                    <p> If you have to wear a mask, you might as well love it. Our mask are handmade to order using a rich double layered fabric. The fronts are lined with a slim pocket allowing for option filter inserts for the best protection.</p>
-                    <div class="container"> 
-                        <div class="row">
-                            <div class="col-lg">
-                                <img class="imgresize" src="/data/product/imgs/paulo-silva-ZF-g_sY9G7Q-unsplash.png"> 
-                            </div>
-                            <div class="col-lg">
-                                <img class="imgresize" src="/data/product/imgs/united-nations-covid-19-response-EJrK0J8Jr7U-unsplash.jpg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+              <!-- Tabs Titles -->
+              <h2 class="active"> Sign In </h2>
+              <h2 class="inactive underlineHover">Sign Up </h2>
+          
+              <!-- Icon -->
+              <div class="fadeIn first">
+                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+              </div>
+          
+              <!-- Login Form -->
+              <form>
+                <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+                <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+                <input type="submit" class="fadeIn fourth" value="Log In">
+              </form>
+          
+              <!-- Remind Passowrd -->
+              <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+              </div>
+          
             </div>
+          </div>
 
-        </div>
-  
- 
-
-
-    <!-- Optional JavaScript -->
+        <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="main.js"> </script>
+    <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+    <script type="text/javascript" type="text/javascript">
+        Parse.initialize("HipPZuPmvP5TdF39Jg0CB9R918qkgREVyXwLlbJf","kJ0VNS5aQBLvtIHQZltY2uzpkRNxql5nksRGjuxm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+        Parse.serverURL = 'https://parseapi.back4app.com/'
+    </script>
+    
     </body>
 </html>
     <!-- Optional JavaScript -->

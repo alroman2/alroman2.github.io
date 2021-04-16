@@ -51,8 +51,10 @@ function table(){
         product_link.href = './cart.html';
         button.className = 'btn btn-dark btn-rounded btn-sm mr-1 mb-2';
         button.id = 'addCartButton'+this.contents_num;
-        //button.type= 'button';
-        //button.onclick = "location.href='./cart.html'";
+        button.onclick = () => {
+            console.log(product.name);
+            addToCart(product.id);
+        };
 
 
         img.className = 'pic-1';
@@ -133,6 +135,39 @@ function upload(){
         }
     }
 }
+
+
+function CartBadge(){
+    this.items;
+    this.badgeSpan;
+
+    this.construct = () => {
+        <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;"></span> 
+        this.badgeSpan = document.createElement('span');
+        this.badgeSpan.className = 'badge badge-pill badge-primary';
+        this.badgeSpan.style ='float:right;margin-bottom:-10px;';
+        document.getElementById('cartButton').appendChild(this.badgeSpan);
+        this.items = 0;
+    }
+
+    this.increaseItems = (nums) => {
+        this.items += nums;
+        this.badgeSpan.innerHTML = this.items;
+    }
+
+    this.decreaseItems = (nums) => {
+        this.items -= nums;
+        this.badgeSpan.innerHTML = this.items;
+    }
+}
+
+
+function addToCart(id){
+    Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
+        console.log(prod);
+    });
+}
+
 function generate_content(){
         let product_ids;
         
@@ -194,4 +229,3 @@ function generate_content(){
 
      
 }
-
