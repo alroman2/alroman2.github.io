@@ -1,16 +1,10 @@
 
-
 function product (name, ID, image_url, price,quantity){
     this.name = name;
     this.ID = ID;
     this.img_url = image_url;
     this.price = price;
     this.quantity = quantity;
-}
-
-function tableCell(){
-    this.contents = [];
-    this.data;
 }
 
 function table(){
@@ -52,8 +46,8 @@ function table(){
         button.className = 'btn btn-dark btn-rounded btn-sm mr-1 mb-2';
         button.id = 'addCartButton'+this.contents_num;
         button.onclick = () => {
-            console.log(product.ID);
-            addToCart(product.ID,badge);
+            console.log(product);
+            addToCart(product,badge);
         };
 
 
@@ -136,39 +130,14 @@ function upload(){
     }
 }
 
-
-function CartBadge(){
-    this.items;
-    this.badgeSpan;
-
-    this.construct = () => {
-        
-        this.badgeSpan = document.createElement('span');
-        this.badgeSpan.className = 'badge badge-pill badge-primary';
-        this.badgeSpan.style ='float:right;margin-bottom:-10px;';
-        this.badgeSpan.id = "cartBadge";
-        document.getElementById('cartButton').appendChild(this.badgeSpan);
-        this.items = 0;
-    }
-
-    this.increaseItems = (nums) => {
-        this.items += nums;
-        this.badgeSpan.innerHTML = this.items;
-    }
-
-    this.decreaseItems = (nums) => {
-        this.items -= nums;
-        this.badgeSpan.innerHTML = this.items;
-    }
-}
-
-
-function addToCart(id,badge){
-    if (sessionStorage.getItem(id) == null){
-        sessionStorage.setItem(id,1);
-    } else {
-        sessionStorage.setItem(id, parseInt(sessionStorage.getItem(id))+1);
-    }
+function addToCart(item,badge){
+    localSessionCart.addItem(item,1);
+    badge.updateBadge();
+    // if (sessionStorage.getItem(id) == null){
+    //     //sessionStorage.setItem(id,1);
+    // } else {
+    //     //sessionStorage.setItem(id, parseInt(sessionStorage.getItem(id))+1);
+    // }
 
     // Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
     //     console.log(prod.id);
@@ -185,13 +154,8 @@ function addToCart(id,badge){
     // });
 }
 
+let product_ids;
 function generate_content(){
-        let product_ids;
-        let k  = 0;
-        let badge = new CartBadge();
-        badge.construct();
-
-        
         //initialize product table view
         let table_controller = new table();
         table_controller.add_row();
@@ -215,7 +179,7 @@ function generate_content(){
                 const quantity = object.attributes.Quantity;
                 const curr_product = new product(name,ID,imageURL,price,quantity)
                 table_controller.add_cell(0, curr_product,badge);
-                product_ids[i++] = curr_product
+                product_ids[i++] = curr_product;
                 //console.log(object.attributes.name);
             });
             console.log(product_ids);        
