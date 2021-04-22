@@ -14,7 +14,7 @@ function Cart(){
     this.cartObj;
     this.cartCI;
     this.cartItemCount;
-    this.cartTotal;
+    this.cartTotal; 
 
 
     this.construct = () => {
