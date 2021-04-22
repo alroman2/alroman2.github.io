@@ -9,7 +9,7 @@
   </head>
   <body>
     
-<nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color:rgb(255, 255, 255);">
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color:rgb(255, 255, 255);">
   <div>
     <h1 style="font-family:'Segoe UI';"><a class="nav-link" href="/index.html" style="color:black"> G - Masks</a></h1>
   </div>
@@ -52,7 +52,7 @@
 
     <body onload="generate_cart()">
        
-        <div class="container" >
+        <div class="container" id="cartDisplay">
              <div class="row">
                  <div id="cart_table" class="col-lg">
                     
@@ -71,9 +71,11 @@
         Parse.serverURL = 'https://parseapi.back4app.com/'
     </script>
     <script src="Network.js"></script>
+    <script src="Cart.js"></script>
+    <script src="CartBadge.js"></script>
     <script src="ShopController.js"></script>
-    <script src="main.js"> </script>
     <script src="CartController.js"></script>
+    <script src="main.js"> </script>
     </body>
 </html>
     <!-- Optional JavaScript -->
