@@ -15,6 +15,29 @@
 </ul>
  */
 
+function Cart(){
+    this.items;
+    this.iterator = 0;
+
+    this.construct = () => {
+        this.items = {};
+
+    }
+
+    this.addItem = (item,qty) => {
+        this.items[item] = qty; 
+    }
+
+    this.removeItem = (item, qty) => {
+        if (this.items[item] - qty <= 0){
+            delete this.items[item];
+        } else{
+            this.items[item] -= qty;
+        }
+    }
+
+}
+
 function Cell(){
     this.listItem;
     this.priceSpan;
@@ -97,7 +120,7 @@ function table(){
     this.removeCell = (row) => {
         const targetCellId = this.table_contents[row].listItem.id;
         document.getElementById(targetCellId).remove(); 
-        this.total -= table_contents[row].price;
+        this.total -= this.table_contents[row].price;
         this.updateCell(row);
         delete this.table_contents[row];
         this.rows--;
@@ -117,4 +140,6 @@ function generate_cart(){
 
     itemsTable.totalCell(true);
     itemsTable.removeCell(2); 
+
+    console.log(sessionStorage);
 }

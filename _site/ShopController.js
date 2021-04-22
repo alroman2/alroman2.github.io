@@ -28,7 +28,7 @@ function table(){
         this.rows++;
     }
 
-    this.add_cell = function (index, product) {
+    this.add_cell = function (index, product,badge) {
         const product_div = document.createElement('div');
         const product_grid_div = document.createElement('div');
         const product_image_div = document.createElement('div');
@@ -53,7 +53,7 @@ function table(){
         button.id = 'addCartButton'+this.contents_num;
         button.onclick = () => {
             console.log(product.name);
-            addToCart(product.id);
+            addToCart(product.id,badge);
         };
 
 
@@ -142,10 +142,11 @@ function CartBadge(){
     this.badgeSpan;
 
     this.construct = () => {
-        <span class="badge badge-pill badge-primary" style="float:right;margin-bottom:-10px;"></span> 
+        
         this.badgeSpan = document.createElement('span');
         this.badgeSpan.className = 'badge badge-pill badge-primary';
         this.badgeSpan.style ='float:right;margin-bottom:-10px;';
+        this.badgeSpan.id = "cartBadge";
         document.getElementById('cartButton').appendChild(this.badgeSpan);
         this.items = 0;
     }
@@ -162,14 +163,27 @@ function CartBadge(){
 }
 
 
-function addToCart(id){
+function addToCart(id,badge){
     Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
-        console.log(prod);
+        if (prod._objCount > 0){
+            if (sessionStorage.getItem(prod.id) == null ) {
+                sessionStorage.setItem(prod.id,1);
+                
+            } else {
+                sessionStorage.setItem(prod.id, parseInt(sessionStorage.getItem(prod.id))+1);
+            }
+            
+            badge.increaseItems(1);
+        }
     });
 }
 
 function generate_content(){
         let product_ids;
+        let k  = 0;
+        let badge = new CartBadge();
+        badge.construct();
+
         
         //initialize product table view
         let table_controller = new table();
@@ -193,7 +207,7 @@ function generate_content(){
                 const price = object.attributes.price;
                 const quantity = object.attributes.Quantity;
                 const curr_product = new product(name,ID,imageURL,price,quantity)
-                table_controller.add_cell(0, curr_product);
+                table_controller.add_cell(0, curr_product,badge);
                 product_ids[i++] = curr_product
                 //console.log(object.attributes.name);
             });
@@ -227,5 +241,4 @@ function generate_content(){
         // });
 
 
-     
-}
+    }  
