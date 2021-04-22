@@ -6,7 +6,7 @@ $(window).ready (function () {
     console.log("ready")
     localSessionCart = new Cart();
     localSessionCart.construct();    
-    console.log(localSessionCart.cartItemCount)
+    //console.log(localSessionCart.cartItemCount)
 });
 
 
@@ -19,7 +19,7 @@ function Cart(){
 
     this.construct = () => {
         this.cartObj = new Array();
-        this.cartCI = -1;
+        this.cartCI = 0;
         this.cartItemCount = 0;
         this.cartTotal = 0;
 
