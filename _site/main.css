@@ -267,7 +267,24 @@ input[type=text]:placeholder {
 }
 
 
+/** cart.html **/
+#cartDisplay{
+  margin-top: 15vh;
+}
+.cart-item{
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 20%;
+}
+.cart-img{
+  max-width: 100%;
+  max-height: auto;
+  justify-self: right;
+}
 
+.cart-itemName{
+  text-align: left;
+}
 .container-fluid{
     padding: 0;
 }
@@ -295,7 +312,7 @@ body{
     background-color:rgb(255, 255, 255);
 }
 
-/** Main Contect CSS **/
+/** Main Contet CSS **/
 
 .headtext{
     text-align: center;
