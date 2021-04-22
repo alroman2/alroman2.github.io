@@ -52,8 +52,8 @@ function table(){
         button.className = 'btn btn-dark btn-rounded btn-sm mr-1 mb-2';
         button.id = 'addCartButton'+this.contents_num;
         button.onclick = () => {
-            console.log(product.name);
-            addToCart(product.id,badge);
+            console.log(product.ID);
+            addToCart(product.ID,badge);
         };
 
 
@@ -164,18 +164,25 @@ function CartBadge(){
 
 
 function addToCart(id,badge){
-    Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
-        if (prod._objCount > 0){
-            if (sessionStorage.getItem(prod.id) == null ) {
-                sessionStorage.setItem(prod.id,1);
+    if (sessionStorage.getItem(id) == null){
+        sessionStorage.setItem(id,1);
+    } else {
+        sessionStorage.setItem(id, parseInt(sessionStorage.getItem(id))+1);
+    }
+
+    // Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
+    //     console.log(prod.id);
+    //     if (prod._objCount > 0){
+    //         if (sessionStorage.getItem(prod.id) == null ) {
+    //             sessionStorage.setItem(prod.id,1);
                 
-            } else {
-                sessionStorage.setItem(prod.id, parseInt(sessionStorage.getItem(prod.id))+1);
-            }
+    //         } else {
+    //             sessionStorage.setItem(prod.id, parseInt(sessionStorage.getItem(prod.id))+1);
+    //         }
             
-            badge.increaseItems(1);
-        }
-    });
+    //         badge.increaseItems(1);
+    //     }
+    // });
 }
 
 function generate_content(){
@@ -216,29 +223,4 @@ function generate_content(){
         }, (error) => {
             console.log(error);
         });
-
-        // let test;
-        // Prods.get("iCGIoUKLvm")
-        // .then((mask) => {
-            
-        //     test = mask.get("image");
-        //     console.log("finished api request")
-        //     console.log(test.url());
-        //     let image_url_string = ""+test.url();
-        //     //$("test1").src= image_url_string;        
-        //     table_controller.add_cell(0, image_url_string);
-        // }, (error) => {
-
-        // });
-        // query.find().then((results) => {
-        //  // You can use the "get" method to get the value of an attribute
-        // // Ex: response.get("<ATTRIBUTE_NAME>")
-        // if (typeof document !== 'undefined') document.write(`ParseObjects found: ${JSON.stringify(results)}`);
-        // console.log('ParseObjects found:', results);
-        // }, (error) => {
-        // if (typeof document !== 'undefined') document.write(`Error while fetching ParseObjects: ${JSON.stringify(error)}`);
-        // console.error('Error while fetching ParseObjects', error);
-        // });
-
-
     }  
