@@ -1,4 +1,11 @@
-
+/**
+ * Defines a local product object that persists acrross a user session. Minimizes the amount of calls needed for the API.
+ * @param {*} name 
+ * @param {*} ID 
+ * @param {*} image_url 
+ * @param {*} price 
+ * @param {*} quantity 
+ */
 function product (name, ID, image_url, price,quantity){
     this.name = name;
     this.ID = ID;
@@ -7,6 +14,10 @@ function product (name, ID, image_url, price,quantity){
     this.quantity = quantity;
 }
 
+
+/**
+ * A table object that displays a grid based tabled. The table can respond to viewport changes. The table can add new cells
+ */
 function table(){
     this.table_contents = [];
     this.row_contents = [];
@@ -75,91 +86,21 @@ function table(){
     }
 }
 
-// function add_to_cart(id_button){
-//     console.log('Clicked');
-//     let modal = document.getElementById('exampleModal')
-//     id_button.onclick = function(){
-//         modal.style.display = 'block';
-//     }
-// }
-
-function post_content(){
-    
-    for (let i = 0; i < 20; i++){
-        const Product_class = Parse.Object.extend('Products');
-        const mask = new Product_class();
-
-        mask.set('Quantity',Math.floor(Math.random()*21));
-        mask.set('name', "item"+i );
-        mask.set('price', 1);
-        mask.set('Size', 'L');
-        
-        
-    }
-}
-
-function upload(){
-    const Product_class = Parse.Object.extend('Products');
-    
-    const control = $('#photoUpload')[0];
-    console.log('running');
-    for (let i = 0; i < 25; i++){
-        if (control.files.length > 0){
-                    console.log('creating mask....')
-                    const mask = new Product_class();
-                    mask.set('Quantity',Math.floor(Math.random()*100));
-                    mask.set('name', "item " + Math.floor(Math.random()*100));
-                    mask.set('price', Math.floor(Math.random()*15));
-                    mask.set('Size', 'L');
-                    const file = control.files[0];
-                    const name = 'mask.jpg';
-        
-                    const parseFile = new Parse.File(name,file);
-                    mask.set('image', parseFile);
-        
-                    mask.save().then(
-                        (result) => {
-                            console.log('product created:',result);
-                        }, (error) => {
-                            console.error("Error while creating product", error);
-                        }
-                    );
-        
-                    console.log('ran')
-        }
-    }
-}
-
 function addToCart(item,badge){
     localSessionCart.addItem(item,1);
     badge.updateBadge();
-    // if (sessionStorage.getItem(id) == null){
-    //     //sessionStorage.setItem(id,1);
-    // } else {
-    //     //sessionStorage.setItem(id, parseInt(sessionStorage.getItem(id))+1);
-    // }
-
-    // Parse.Cloud.run('verifyProduct', { productID: id, units: 1}).then(function (prod){
-    //     console.log(prod.id);
-    //     if (prod._objCount > 0){
-    //         if (sessionStorage.getItem(prod.id) == null ) {
-    //             sessionStorage.setItem(prod.id,1);
-                
-    //         } else {
-    //             sessionStorage.setItem(prod.id, parseInt(sessionStorage.getItem(prod.id))+1);
-    //         }
-            
-    //         badge.increaseItems(1);
-    //     }
-    // });
 }
 
-let product_ids;
+
+
+/**
+ * Generates the body of the shop class dynamically
+ */
 function generate_content(){
         //initialize product table view
         let table_controller = new table();
         table_controller.add_row();
-        //table_controller.add_row();
+        
 
         //start quering database for available proucts
         const Products_class = Parse.Object.extend('Products');
@@ -170,7 +111,7 @@ function generate_content(){
             console.log(results);
             let i = 0;
             product_ids = new Array(results.length);
-            //store data results in global content and display them
+            //store data results in global object and display them
             results.forEach(object => {
                 const name = object.attributes.name;
                 const  ID = object.id;
@@ -180,10 +121,7 @@ function generate_content(){
                 const curr_product = new product(name,ID,imageURL,price,quantity)
                 table_controller.add_cell(0, curr_product,badge);
                 product_ids[i++] = curr_product;
-                //console.log(object.attributes.name);
             });
-            console.log(product_ids);        
-            
         }, (error) => {
             console.log(error);
         });

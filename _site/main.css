@@ -11,12 +11,6 @@ body {
   height: 100vh;
 }
 
-a {
-  color: #92badd;
-  display:inline-block;
-  text-decoration: none;
-  font-weight: 400;
-}
 
 h2 {
   text-align: center;
@@ -334,6 +328,10 @@ input[type=text]:placeholder {
     color:white;
     font-size: 5vw;
     text-align: center;
+}
+
+#shop-action{
+  font-size: ;
 }
 body{
     
