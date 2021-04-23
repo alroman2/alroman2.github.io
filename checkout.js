@@ -1,3 +1,8 @@
+
+/**
+ * Makes an API call to verify products, and initiate a checkout session. Redirects
+ * user to secure payment portal.
+ */
 var checkoutButton = document.getElementById("checkout-button");
  checkoutButton.addEventListener("click", function () {
       Parse.Cloud.run('createCheckoutSession', {cart: localSessionCart})

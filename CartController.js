@@ -1,5 +1,7 @@
 
-
+/**
+ * A customer cell object that displays an item's name, image, and price. Should be used with the table class.
+ */
 function Cell(){
     this.listItem;
     this.priceSpan;
@@ -48,11 +50,15 @@ function Cell(){
     }
 }
 
+
+/**
+ * The table class implements a custom cell in an unordered list. Allows for the addition and removal of new cells
+ */
 function table(){
     this.unorderedList;
     this.table_contents;
     this.rows;
-    //this.total;
+    
 
 
     this.construct = function(){
@@ -78,7 +84,6 @@ function table(){
         this.unorderedList.appendChild(tableCell.listItem);
         this.table_contents[this.rows] = tableCell;
         this.rows++;
-        //this.total += 5.00;
         console.log(this.table_contents.length);
     }
 
@@ -99,8 +104,6 @@ function table(){
         this.table_contents[index].setPrice(this.total);
     }
 
-    //todo:
-    //removing a cell doesn not update the total price correctly
     this.removeCell = (row) => {
         const targetCellId = this.table_contents[row].listItem.id;
         document.getElementById(targetCellId).remove(); 

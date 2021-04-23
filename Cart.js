@@ -6,10 +6,12 @@ $(window).ready (function () {
     console.log("ready")
     localSessionCart = new Cart();
     localSessionCart.construct();    
-    //console.log(localSessionCart.cartItemCount)
 });
 
-
+/**
+ * Cart object holds all items a user request, total amount, and an iterator to update the cart
+ * The cart object is backed by a local storage session that persists until the browser is closed.
+ */
 function Cart(){
     this.cartObj;
     this.cartCI;
@@ -37,6 +39,7 @@ function Cart(){
         }
     }
 
+    
     this.calcItemTotal= (item, qty) => {
         let itemTotal = item.price * qty;
         this.cartTotal += itemTotal;
