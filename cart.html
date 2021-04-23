@@ -11,15 +11,23 @@ title: G-mask
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="main.css">    
+        <link rel="stylesheet" type="text/css" href="main.css">  
+        <script src="https://js.stripe.com/v3/"></script>  
+        <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
     </head>
 
-    <title>
+    <title></title>
         Shop
     </title>
 
     <body onload="generate_cart()">
-       
+       <div class="container cart-title">
+           <div class="row">
+                <div class="col lg-4" style="border-bottom: 1px solid black ">
+                    <h1 class="cart-title-text"> Shopping Cart </h1>
+                </div>
+           </div>
+       </div>
         <div class="container" id="cartDisplay">
              <div class="row">
                  <div id="cart_table" class="col-lg" style="box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);">
@@ -27,6 +35,11 @@ title: G-mask
                  </div>
 
              </div>
+        </div>
+        <div class="cart-checkout">
+            <button type="button" class="btn btn-info cart-checkout-btn lg-4" id="checkout-button">
+                <a href="#">Proceed to Checkout</a>
+            </button>
         </div>
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -36,13 +49,15 @@ title: G-mask
     <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
     <script type="text/javascript" type="text/javascript">
         Parse.initialize("HipPZuPmvP5TdF39Jg0CB9R918qkgREVyXwLlbJf","kJ0VNS5aQBLvtIHQZltY2uzpkRNxql5nksRGjuxm"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-        Parse.serverURL = 'https://parseapi.back4app.com/'
+        Parse.serverURL = 'https://parseapi.back4app.com/';
+        stripe = Stripe("pk_test_51Ij1HlGdXF8f4xhPb2UvHTsMGS1CrWDPBMsuv3UnO6bHJOgk9xY5WdWMqzg5cDlB5ArAfIcnb2hPWgZ02gTKLE0s009aQN3oit");
     </script>
     <script src="Network.js"></script>
     <script src="Cart.js"></script>
     <script src="CartBadge.js"></script>
     <script src="ShopController.js"></script>
     <script src="CartController.js"></script>
+    <script src="checkout.js"></script>
     <script src="main.js"> </script>
     </body>
 </html>
