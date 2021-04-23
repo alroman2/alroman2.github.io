@@ -28,7 +28,11 @@ h2 {
   color: #cccccc;
 }
 
-
+#footer1{
+  padding-top: 3rem !important;
+  margin-bottom: 0 !important;
+  margin-top: 50rem !important;
+}
 
 /* STRUCTURE */
 
@@ -268,6 +272,14 @@ input[type=text]:placeholder {
 
 
 /** cart.html **/
+.cart-title{
+  margin-top: 15vh;
+}
+
+.cart-title-text{
+  text-align: center;
+  
+}
 #cartDisplay{
   margin-top: 15vh;
 }
@@ -285,9 +297,25 @@ input[type=text]:placeholder {
 .cart-itemName{
   text-align: left;
 }
+
+.cart-checkout{
+  margin-top: 5vh;
+  margin-right: 20%;
+  margin-left: 70%;
+  
+}
+
+.cart-checkout-btn{
+  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.281);
+}
+
+
+
+
 .container-fluid{
     padding: 0;
 }
+
 
 
 .customclass {
