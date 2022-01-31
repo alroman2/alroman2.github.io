@@ -23,3 +23,11 @@ This is a small shopping site that displays masks from an inventory database, an
 ### Shopping
 
 <img src= "https://i.imgur.com/Llkab1u.png">
+
+### Cart
+
+<img src="https://i.imgur.com/86NDGGk.png">
+     
+### Checkout 
+
+<img src="https://i.imgur.com/ekEgM1u.png">
