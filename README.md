@@ -22,4 +22,4 @@ This is a small shopping site that displays masks from an inventory database, an
 
 ### Shopping
 
-<img src= "blob:https://imgur.com/a797a541-638a-4c2f-8b5c-b95671f22bb4>
+<img src= "https://imgur.com/a797a541-638a-4c2f-8b5c-b95671f22bb4>
